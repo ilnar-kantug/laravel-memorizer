@@ -27,10 +27,10 @@ class UsersTableSeeder extends Seeder
             $user->profile()->create([
                 'user_id' => $user->id,
                 'photo' => $faker->imageUrl(200, 200),
-                'character_id' => $faker->numberBetween(1, 6),
+                'character_id' => $faker->numberBetween(1, 9),
                 'notification' => $faker->numberBetween(0, 1),
                 'last_session' => $faker->dateTimeThisMonth(),
-                'experience' => $faker->numberBetween(0, 1000),
+                'experience' => $faker->numberBetween(0, 5000),
             ]);
         }
     }

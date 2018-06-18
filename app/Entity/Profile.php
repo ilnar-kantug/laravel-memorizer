@@ -20,4 +20,9 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function character()
+    {
+        return $this->belongsTo(Character::class, 'character_id', 'id');
+    }
 }

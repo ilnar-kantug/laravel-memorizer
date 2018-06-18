@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
         'packs',
         'cards_packs',
         'html_cards',
-        'image_cards'
+        'image_cards',
+        'characters',
+        'characteristics',
+        'levels'
     ];
 
     public function run()
@@ -24,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CardsTableSeeder::class);
         $this->call(TagsTableSeeder::class);
         $this->call(PacksTableSeeder::class);
+        $this->call(CharactersSeeder::class);
     }
 
     private function truncateTables()
