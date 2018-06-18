@@ -31,3 +31,12 @@ perm:
 	sudo chmod -R 777 bootstrap/cache
 	if [ -d "node_modules" ]; then sudo chmod -R 777 node_modules; fi
 	if [ -d "public/build" ]; then sudo chmod -R 777 public/build; fi
+
+migrate:
+	docker-compose exec php-cli php artisan migrate
+
+migrate-seed:
+	docker-compose exec php-cli php artisan migrate:refresh --seed
+
+seed:
+	docker-compose exec php-cli php artisan db:seed
