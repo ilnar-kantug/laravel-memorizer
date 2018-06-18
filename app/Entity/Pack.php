@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Cards\Card;
-use App\User;
+use App\Entity\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Pack extends Model

@@ -4,7 +4,7 @@ namespace App\Entity\Cards;
 
 use App\Entity\Pack;
 use App\Entity\Tag;
-use App\User;
+use App\Entity\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

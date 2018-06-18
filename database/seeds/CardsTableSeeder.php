@@ -3,7 +3,7 @@
 use App\Entity\Cards\Card;
 use App\Entity\Cards\HtmlCard;
 use App\Entity\Cards\ImageCard;
-use App\User;
+use App\Entity\User;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 

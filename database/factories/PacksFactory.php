@@ -1,7 +1,7 @@
 <?php
 
 use App\Entity\Pack;
-use App\User;
+use App\Entity\User;
 use Faker\Generator as Faker;
 
 $factory->define(Pack::class, function (Faker $faker) {

@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+use App\Entity\User;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
 
     public function createAdmin()
     {
-        App\User::create([
+        App\Entity\User::create([
             'name' => 'admin',
             'email' => 'admin@admin.admin',
             'password' => bcrypt('adminadmin'),
