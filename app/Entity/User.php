@@ -12,8 +12,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public const STATUS_WAIT = 0;
+    public const STATUS_ACTIVE = 1;
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'verify_token'
     ];
 
     protected $hidden = [

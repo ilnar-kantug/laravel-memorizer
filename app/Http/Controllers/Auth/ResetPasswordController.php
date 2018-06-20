@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Entity\User;
 use App\Http\Controllers\Controller;
+use App\UseCases\Auth\RegisterService;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\PasswordReset;
 
 class ResetPasswordController extends Controller
 {
@@ -26,14 +31,43 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    /**
+     * @var RegisterService
+     */
+    private $registerService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(RegisterService $registerService)
     {
         $this->middleware('guest');
+        $this->registerService = $registerService;
+    }
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->password = Hash::make($password);
+
+        $user->setRememberToken(Str::random(60));
+
+        $user->save();
+
+        event(new PasswordReset($user));
+
+        $this->guard()->login($user);
+
+        if (!empty($user->verify_token) && $user->status == User::STATUS_WAIT) {
+            $this->registerService->verifyUser($user);
+        }
     }
 }

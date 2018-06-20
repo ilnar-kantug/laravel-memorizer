@@ -1,11 +1,22 @@
 <?php
 
 use App\Entity\User;
+use App\UseCases\Auth\RegisterService;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
 class UsersTableSeeder extends Seeder
 {
+    /**
+     * @var RegisterService
+     */
+    private $registerService;
+
+    public function __construct(RegisterService $registerService)
+    {
+        $this->registerService = $registerService;
+    }
+
     public function run(Faker $faker)
     {
         $this->createUsers();
@@ -18,6 +29,12 @@ class UsersTableSeeder extends Seeder
         $this->createAdmin();
 
         factory(User::class, 10)->create();
+
+        $users =  User::all();
+
+        foreach ($users as $user) {
+            $this->registerService->verifyUser($user);
+        }
     }
 
     public function createProfiles($faker)
@@ -42,6 +59,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@admin.admin',
             'password' => bcrypt('adminadmin'),
             'remember_token' => str_random(10),
+            'status' => User::STATUS_ACTIVE,
         ]);
     }
 }
