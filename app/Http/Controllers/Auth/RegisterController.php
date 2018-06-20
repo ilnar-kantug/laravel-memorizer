@@ -33,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '';
     /**
      * @var RegisterService
      */
@@ -48,6 +48,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
         $this->registerService = $registerService;
+        $this->redirectTo = route('dashboard');
     }
 
     /**
@@ -101,6 +102,6 @@ class RegisterController extends Controller
 
         $this->registerService->verifyUser($user);
 
-        return redirect(route('home'))->with('success', __('flashes.verified_token'));
+        return redirect(route('dashboard'))->with('success', __('flashes.verified_token'));
     }
 }

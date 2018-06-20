@@ -39,7 +39,7 @@ class VerificationTest extends TestCase
             ->assertSessionHas('error', __('flashes.no_verify_token'));
 
         $this->get(route('register.verify', ['token' => $user->verify_token]))
-            ->assertRedirect(route('home'))
+            ->assertRedirect(route('dashboard'))
             ->assertSessionHas('success', __('flashes.verified_token'));
 
         $user = User::find($user->id);
@@ -59,6 +59,6 @@ class VerificationTest extends TestCase
 
         $this->signIn($user);
 
-        $this->get(route('home'))->assertStatus(200);
+        $this->get(route('dashboard'))->assertStatus(200);
     }
 }

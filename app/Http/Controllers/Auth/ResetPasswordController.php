@@ -30,7 +30,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '';
     /**
      * @var RegisterService
      */
@@ -45,6 +45,7 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
         $this->registerService = $registerService;
+        $this->redirectTo = route('dashboard');
     }
 
     /**
