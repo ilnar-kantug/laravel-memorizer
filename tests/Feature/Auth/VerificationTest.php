@@ -27,6 +27,8 @@ class VerificationTest extends TestCase
         ])->assertStatus(302)->assertRedirect(back()->getTargetUrl());
 
         $this->assertEquals(session()->get('error'), __('flashes.not_verified_user'));
+
+        $this->assertGuest();
     }
 
     /** @test */
@@ -55,10 +57,11 @@ class VerificationTest extends TestCase
 
         $this->get(route('register.verify', ['token' => $user->verify_token]));
 
-        $user = User::find($user->id);
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'secret'
+        ])->assertStatus(302)->assertRedirect(route('dashboard'));
 
-        $this->signIn($user);
-
-        $this->get(route('dashboard'))->assertStatus(200);
+        $this->assertAuthenticated();
     }
 }
