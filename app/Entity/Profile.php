@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 
 class Profile extends Model
 {
+    use LocalizedEloquentTrait;
+
     protected $fillable = [
         'user_id',
         'photo',

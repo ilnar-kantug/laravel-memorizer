@@ -6,3 +6,8 @@
  */
 
 require('./bootstrap');
+
+require("jquery-ui/ui/widgets/progressbar");
+require("jquery-ui/themes/base/progressbar.css");
+
+require('./custom');

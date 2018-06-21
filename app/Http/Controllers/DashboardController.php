@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Entity\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\UseCases\DashboardService;
 
 class DashboardController extends Controller
 {
-    public function __construct()
+    public $service;
+
+    public function __construct(DashboardService $service)
     {
         $this->middleware('auth');
+        $this->service = $service;
     }
+
     public function show()
     {
-        return view('home');
+        $user = $this->service->getUsersInfo();
+        return view('dashboard', compact('user'));
     }
 }

@@ -4,3 +4,42 @@
   bottom: 40px;
   right: 10px;
 }
+
+/* Dashboard page */
+
+.dashboard-profile .ui-progressbar{
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.dashboard-profile .ui-progressbar-value{
+  background-color: $teal;
+  border-radius: 3px;
+}
+
+.dashboard-profile .ui-progressbar .ui-progressbar-value{
+  margin: 0 !important;
+}
+
+.dashboard-profile #progressbar{
+  position: relative;
+}
+.dashboard-profile .progressbar-label{
+  position: absolute;
+  left: 47%;
+  top: 4px;
+  font-weight: bold;
+}
+
+.dashboard-profile__level{
+  margin-bottom: 10px;
+}
+
+.dashboard-profile__body > div{
+  margin-bottom: 20px;
+}
+
+.characteristics-avatar{
+  max-width: 200px;
+  max-height: 200px;
+}
