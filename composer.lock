@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "07070854082b896ffed0610e14002a4c",
-    "content-hash": "84feca7cb2957f85eb5b6a5728f8204d",
+    "hash": "fd669adf15df4713606ede651471cb7f",
+    "content-hash": "0a76f01a9fec628efddab674a9716c34",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1014,6 +1014,62 @@
             "time": "2018-05-17 13:42:07"
         },
         {
+            "name": "laravelrus/localized-carbon",
+            "version": "v2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelRUS/localized-carbon.git",
+                "reference": "cecdc977c40ed12350bb8444655b0c012b61bb79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelRUS/localized-carbon/zipball/cecdc977c40ed12350bb8444655b0c012b61bb79",
+                "reference": "cecdc977c40ed12350bb8444655b0c012b61bb79",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.5.0",
+                "nesbot/carbon": "^1.24",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravelrus\\LocalizedCarbon\\LocalizedCarbonServiceProvider"
+                    ],
+                    "aliases": {
+                        "LocalizedCarbon": "Laravelrus\\LocalizedCarbon\\LocalizedCarbon",
+                        "DiffFormatter": "Laravelrus\\LocalizedCarbon\\DiffFactoryFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laravelrus\\LocalizedCarbon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Egorov",
+                    "email": "amego2006@gmail.com"
+                }
+            ],
+            "description": "A localizable version of Carbon",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "laravel",
+                "time"
+            ],
+            "time": "2018-04-22 13:14:05"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.45",
             "source": {
@@ -1673,6 +1729,72 @@
                 "uuid"
             ],
             "time": "2018-01-20 00:28:24"
+        },
+        {
+            "name": "spatie/laravel-blade-javascript",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-blade-javascript.git",
+                "reference": "bb4a5a86d524e9194bb1744c076e31cb066dcdab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/bb4a5a86d524e9194bb1744c076e31cb066dcdab",
+                "reference": "bb4a5a86d524e9194bb1744c076e31cb066dcdab",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.5.0|~5.6.0",
+                "illuminate/support": "~5.5.0|~5.6.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.5.0|~3.6.0",
+                "phpunit/phpunit": "^6.3|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\BladeJavaScript\\BladeJavaScriptServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\BladeJavaScript\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Blade directive to export variables to JavaScript",
+            "homepage": "https://github.com/spatie/laravel-blade-javascript",
+            "keywords": [
+                "blade",
+                "directive",
+                "javascript",
+                "laravel",
+                "laravel-blade-javascript",
+                "spatie"
+            ],
+            "time": "2018-05-07 15:08:03"
         },
         {
             "name": "swiftmailer/swiftmailer",

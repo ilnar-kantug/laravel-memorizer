@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.25 on 2018-06-18 15:32:34.
+ * Generated for Laravel 5.6.25 on 2018-06-21 09:58:41.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -13063,6 +13063,48 @@ namespace Barryvdh\Debugbar {
  
 }
 
+namespace Laravelrus\LocalizedCarbon { 
+
+    class LocalizedCarbon {
+         
+    }
+
+    class DiffFactoryFacade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function extend($language, $formatter)
+        {
+            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::extend($language, $formatter);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function alias($alias, $language)
+        {
+            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::alias($alias, $language);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function get($language)
+        {
+            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::get($language);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -15410,6 +15452,10 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
 
     class Debugbar extends \Barryvdh\Debugbar\Facade {}
+
+    class LocalizedCarbon extends \Laravelrus\LocalizedCarbon\LocalizedCarbon {}
+
+    class DiffFormatter extends \Laravelrus\LocalizedCarbon\DiffFactoryFacade {}
  
 }
 
