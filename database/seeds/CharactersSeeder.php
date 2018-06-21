@@ -42,54 +42,55 @@ class CharactersSeeder extends Seeder
 
     public function createCharacteristicForEachLevel($character)
     {
+        $avatar_url = '/images/avatar.jpg';
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 1,
             'level_to' => 2,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 3,
             'level_to' => 4,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 5,
             'level_to' => 9,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 10,
             'level_to' => 14,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 15,
             'level_to' => 24,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 25,
             'level_to' => 49,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
         Characteristic::create([
             'character_id' => $character->id,
             'title' => $this->faker->firstName,
             'level_from' => 50,
             'level_to' => 100,
-            'avatar' => $this->faker->imageUrl(),
+            'avatar' => $avatar_url,
         ]);
     }
 

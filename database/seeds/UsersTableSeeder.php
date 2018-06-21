@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
         foreach ($users as $user) {
             $user->profile()->create([
                 'user_id' => $user->id,
-                'photo' => $faker->imageUrl(200, 200),
+                'photo' => '/images/avatar.jpg',
                 'character_id' => $faker->numberBetween(1, 9),
                 'notification' => $faker->numberBetween(0, 1),
                 'last_session' => $faker->dateTimeThisMonth(),
