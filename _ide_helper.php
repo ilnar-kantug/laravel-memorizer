@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.25 on 2018-06-21 09:58:41.
+ * Generated for Laravel 5.6.25 on 2018-06-22 07:37:53.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -12515,6 +12515,48 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Laravelrus\LocalizedCarbon { 
+
+    class LocalizedCarbon {
+         
+    }
+
+    class DiffFactoryFacade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function extend($language, $formatter)
+        {
+            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::extend($language, $formatter);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function alias($alias, $language)
+        {
+            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::alias($alias, $language);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function get($language)
+        {
+            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::get($language);
+        }
+         
+    }
+ 
+}
+
 namespace Barryvdh\Debugbar { 
 
     class Facade {
@@ -13063,42 +13105,93 @@ namespace Barryvdh\Debugbar {
  
 }
 
-namespace Laravelrus\LocalizedCarbon { 
+namespace Kamaln7\Toastr\Facades { 
 
-    class LocalizedCarbon {
-         
-    }
-
-    class DiffFactoryFacade {
+    class Toastr {
         
         /**
-         * 
+         * Render the notifications' script tag
          *
+         * @return string 
+         * @internal param bool $flashed Whether to get the
          * @static 
          */ 
-        public static function extend($language, $formatter)
+        public static function render()
         {
-            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::extend($language, $formatter);
+            return \Kamaln7\Toastr\Toastr::render();
         }
         
         /**
-         * 
+         * Add a notification
          *
+         * @param string $type Could be error, info, success, or warning.
+         * @param string $message The notification's message
+         * @param string $title The notification's title
+         * @return bool Returns whether the notification was successfully added or
+         * not.
          * @static 
          */ 
-        public static function alias($alias, $language)
+        public static function add($type, $message, $title = null, $options = array())
         {
-            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::alias($alias, $language);
+            return \Kamaln7\Toastr\Toastr::add($type, $message, $title, $options);
         }
         
         /**
-         * 
+         * Shortcut for adding an info notification
+         *
+         * @param string $message The notification's message
+         * @param string $title The notification's title
+         * @static 
+         */ 
+        public static function info($message, $title = null, $options = array())
+        {
+            return \Kamaln7\Toastr\Toastr::info($message, $title, $options);
+        }
+        
+        /**
+         * Shortcut for adding an error notification
+         *
+         * @param string $message The notification's message
+         * @param string $title The notification's title
+         * @static 
+         */ 
+        public static function error($message, $title = null, $options = array())
+        {
+            return \Kamaln7\Toastr\Toastr::error($message, $title, $options);
+        }
+        
+        /**
+         * Shortcut for adding a warning notification
+         *
+         * @param string $message The notification's message
+         * @param string $title The notification's title
+         * @static 
+         */ 
+        public static function warning($message, $title = null, $options = array())
+        {
+            return \Kamaln7\Toastr\Toastr::warning($message, $title, $options);
+        }
+        
+        /**
+         * Shortcut for adding a success notification
+         *
+         * @param string $message The notification's message
+         * @param string $title The notification's title
+         * @static 
+         */ 
+        public static function success($message, $title = null, $options = array())
+        {
+            return \Kamaln7\Toastr\Toastr::success($message, $title, $options);
+        }
+        
+        /**
+         * Clear all notifications
          *
          * @static 
          */ 
-        public static function get($language)
+        public static function clear()
         {
-            return \Laravelrus\LocalizedCarbon\DiffFormatterFactory::get($language);
+            return \Kamaln7\Toastr\Toastr::clear();
         }
          
     }
@@ -15451,11 +15544,13 @@ namespace  {
 
     class View extends \Illuminate\Support\Facades\View {}
 
-    class Debugbar extends \Barryvdh\Debugbar\Facade {}
-
     class LocalizedCarbon extends \Laravelrus\LocalizedCarbon\LocalizedCarbon {}
 
+    class Debugbar extends \Barryvdh\Debugbar\Facade {}
+
     class DiffFormatter extends \Laravelrus\LocalizedCarbon\DiffFactoryFacade {}
+
+    class Toastr extends \Kamaln7\Toastr\Facades\Toastr {}
  
 }
 

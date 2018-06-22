@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js', 'build') }}" defer></script>
+    <script src="{{ mix('js/app.js', 'build') }}"></script>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css', 'build') }}" rel="stylesheet">
@@ -78,9 +78,10 @@
         </nav>
 
         <main class="py-4">
-            @include('layouts.partials.flash')
             @yield('content')
         </main>
     </div>
+    {!! Toastr::render() !!}
+    @yield('scripts')
 </body>
 </html>

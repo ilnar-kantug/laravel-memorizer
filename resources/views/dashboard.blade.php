@@ -69,8 +69,14 @@
 </div>
 @endsection
 
-@javascript([
-    'user_level' => $user->level['current'],
-    'user_current_experience' => $user->level['current_experience'],
-    'user_max_experience' => $user->level['max_experience'],
-])
+@section('scripts')
+    <script type="text/javascript">
+        jQuery(document).ready(function(  ) {
+            "use strict";
+            jQuery( "#progressbar" ).progressbar({
+                max: {{$user->level['max_experience']}},
+                value: {{$user->level['current_experience']}}
+            });
+        });
+    </script>
+@endsection

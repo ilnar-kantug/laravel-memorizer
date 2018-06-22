@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Kamaln7\Toastr\Facades\Toastr;
 
 class RegisterController extends Controller
 {
@@ -91,17 +92,22 @@ class RegisterController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('login')->with('success', __('flashes.email_verify_link'));
+        Toastr::success(__('flashes.email_verify_link'));
+
+        return redirect()->route('login');
     }
 
     public function verify($token)
     {
         if (!$user = User::where('verify_token', $token)->first()) {
-            return redirect()->route('login')->with('error', __('flashes.no_verify_token'));
+            Toastr::error(__('flashes.no_verify_token'));
+            return redirect()->route('login');
         }
 
         $this->registerService->verifyUser($user);
 
-        return redirect(route('dashboard'))->with('success', __('flashes.verified_token'));
+        Toastr::success(__('flashes.verified_token'));
+
+        return redirect(route('dashboard'));
     }
 }
