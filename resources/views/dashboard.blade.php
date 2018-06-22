@@ -52,16 +52,15 @@
 
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+
+                <div class="card-header text-center">
+                    <h2>{{__('pages.your_card_packs')}}</h2>
+                </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
+                    @include('partials.dashboard_packs')
+
                 </div>
             </div>
         </div>
@@ -71,12 +70,21 @@
 
 @section('scripts')
     <script type="text/javascript">
-        jQuery(document).ready(function(  ) {
-            "use strict";
-            jQuery( "#progressbar" ).progressbar({
+        $(document).ready(function(  ) {
+            $( "#progressbar" ).progressbar({
                 max: {{$user->level['max_experience']}},
                 value: {{$user->level['current_experience']}}
             });
+
+            $('.dashboard-pack__info-later').hover(
+                function() {
+                    var text_element = $( this ).find('.dashboard-pack__repeat-later');
+                    text_element_data = text_element.text();
+                    text_element.empty().text('{{__('pages.do_you_want_repeat_now')}}');
+                }, function() {
+                    $( this ).find('.dashboard-pack__repeat-later').empty().text(text_element_data);
+                }
+            );
         });
     </script>
 @endsection

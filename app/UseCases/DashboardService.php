@@ -20,6 +20,8 @@ class DashboardService
     {
         $user = User::with(['profile.character', 'packs.cards'])->find(Auth::user()->id);
 
+        $user->sortedPacks = $user->packs->sortBy('repeat_in_days');
+
         $user->level = $this->level->getCurrent($user->profile->experience);
         $user->characteristics = Characteristic::getCurrent(
             $user->level['current'],
