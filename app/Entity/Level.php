@@ -19,7 +19,7 @@ class Level extends Model
         $this->experience = $experience;
         $levels = Level::all();
         foreach ($levels as $item) {
-            if ($experience >= $item['experience_from'] && $experience <= $item['experience_to']) {
+            if ($experience >= $item['experience_from'] && $experience < $item['experience_to']) {
                 $this->experience_from = $item['experience_from'];
                 $this->experience_to = $item['experience_to'];
 

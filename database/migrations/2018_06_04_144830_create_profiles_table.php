@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             $table->integer('character_id')->nullable();
             $table->integer('notification')->nullable();
             $table->dateTime('last_session')->nullable();
-            $table->integer('experience')->nullable();
+            $table->integer('experience')->default(0);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

@@ -100,8 +100,8 @@ class CharactersSeeder extends Seeder
             $step = $i*100;
             Level::create([
                 'level' => $i,
-                'experience_from' => $i == 1 ? $i : $step - 100,
-                'experience_to' => $step - 1,
+                'experience_from' => $i == 1 ? $i - 1 : $step - 100,
+                'experience_to' => $step,
             ]);
         }
     }
