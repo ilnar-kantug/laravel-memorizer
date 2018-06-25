@@ -15,8 +15,12 @@ class User extends Authenticatable
     public const STATUS_WAIT = 0;
     public const STATUS_ACTIVE = 1;
 
+    public const ROLE_ADMIN = 1;
+    public const ROLE_USER = 2;
+    public const ROLE_MODERATOR = 3;
+
     protected $fillable = [
-        'name', 'email', 'password', 'verify_token'
+        'name', 'email', 'password', 'verify_token', 'role'
     ];
 
     protected $hidden = [
@@ -36,5 +40,15 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function isModerator()
+    {
+        return $this->role === self::ROLE_MODERATOR;
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === self::ROLE_ADMIN;
     }
 }

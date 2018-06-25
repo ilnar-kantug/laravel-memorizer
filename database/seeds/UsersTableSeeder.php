@@ -54,6 +54,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('adminadmin'),
             'remember_token' => str_random(10),
             'status' => User::STATUS_ACTIVE,
+            'role' => User::ROLE_ADMIN,
         ]);
     }
 }
