@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function show()
     {
-        $user = $this->service->getUsersInfo();
+        $user = $this->service->getUserInfo();
         return view('dashboard', compact('user'));
     }
 }

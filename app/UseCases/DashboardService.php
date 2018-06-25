@@ -16,7 +16,7 @@ class DashboardService
         $this->level = $level;
     }
 
-    public function getUsersInfo()
+    public function getUserInfo()
     {
         $user = User::with(['profile.character', 'packs.cards'])->find(Auth::user()->id);
 
