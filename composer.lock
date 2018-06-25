@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "07070854082b896ffed0610e14002a4c",
-    "content-hash": "84feca7cb2957f85eb5b6a5728f8204d",
+    "hash": "5a0d44c996ca597ccfdc2c50882a3bb9",
+    "content-hash": "3438952f20afcd33f37a5db7493095ba",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1014,6 +1014,62 @@
             "time": "2018-05-17 13:42:07"
         },
         {
+            "name": "laravelrus/localized-carbon",
+            "version": "v2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelRUS/localized-carbon.git",
+                "reference": "cecdc977c40ed12350bb8444655b0c012b61bb79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelRUS/localized-carbon/zipball/cecdc977c40ed12350bb8444655b0c012b61bb79",
+                "reference": "cecdc977c40ed12350bb8444655b0c012b61bb79",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.5.0",
+                "nesbot/carbon": "^1.24",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravelrus\\LocalizedCarbon\\LocalizedCarbonServiceProvider"
+                    ],
+                    "aliases": {
+                        "LocalizedCarbon": "Laravelrus\\LocalizedCarbon\\LocalizedCarbon",
+                        "DiffFormatter": "Laravelrus\\LocalizedCarbon\\DiffFactoryFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laravelrus\\LocalizedCarbon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Egorov",
+                    "email": "amego2006@gmail.com"
+                }
+            ],
+            "description": "A localizable version of Carbon",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "laravel",
+                "time"
+            ],
+            "time": "2018-04-22 13:14:05"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.45",
             "source": {
@@ -1278,6 +1334,65 @@
                 "php"
             ],
             "time": "2018-06-03 11:33:10"
+        },
+        {
+            "name": "oriceon/toastr-5-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oriceon/toastr-5-laravel.git",
+                "reference": "8a03502cc7b151ee0e923fb66a92d91245ccb662"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oriceon/toastr-5-laravel/zipball/8a03502cc7b151ee0e923fb66a92d91245ccb662",
+                "reference": "8a03502cc7b151ee0e923fb66a92d91245ccb662",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": ">=5.0.0",
+                "illuminate/support": ">=5.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kamaln7\\Toastr\\ToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toastr": "Kamaln7\\Toastr\\Facades\\Toastr"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Kamaln7\\Toastr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamal Nasser",
+                    "email": "kamal@kamalnasser.net"
+                },
+                {
+                    "name": "Valentin Ivascu",
+                    "email": "oriceon@gmail.com"
+                }
+            ],
+            "description": "Easy toastr notifications for Laravel 5",
+            "homepage": "https://github.com/oriceon/toastr-5-laravel",
+            "keywords": [
+                "laravel",
+                "notification",
+                "php",
+                "toastr"
+            ],
+            "time": "2018-04-30 05:58:02"
         },
         {
             "name": "paragonie/random_compat",
@@ -1673,6 +1788,72 @@
                 "uuid"
             ],
             "time": "2018-01-20 00:28:24"
+        },
+        {
+            "name": "spatie/laravel-blade-javascript",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-blade-javascript.git",
+                "reference": "bb4a5a86d524e9194bb1744c076e31cb066dcdab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/bb4a5a86d524e9194bb1744c076e31cb066dcdab",
+                "reference": "bb4a5a86d524e9194bb1744c076e31cb066dcdab",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.5.0|~5.6.0",
+                "illuminate/support": "~5.5.0|~5.6.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.5.0|~3.6.0",
+                "phpunit/phpunit": "^6.3|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\BladeJavaScript\\BladeJavaScriptServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\BladeJavaScript\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Blade directive to export variables to JavaScript",
+            "homepage": "https://github.com/spatie/laravel-blade-javascript",
+            "keywords": [
+                "blade",
+                "directive",
+                "javascript",
+                "laravel",
+                "laravel-blade-javascript",
+                "spatie"
+            ],
+            "time": "2018-05-07 15:08:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4701,7 +4882,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "oriceon/toastr-5-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

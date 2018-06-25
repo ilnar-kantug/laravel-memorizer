@@ -14,3 +14,8 @@ function rawData($class, $attributes = [])
 {
     return factory($class)->raw($attributes);
 }
+
+function search_in_toastr_session($message)
+{
+    return in_array($message, array_column(session()->get('toastr::notifications'), 'message'));
+}

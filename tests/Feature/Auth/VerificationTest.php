@@ -26,7 +26,9 @@ class VerificationTest extends TestCase
             'password' => 'secret'
         ])->assertStatus(302)->assertRedirect(back()->getTargetUrl());
 
-        $this->assertEquals(session()->get('error'), __('flashes.not_verified_user'));
+        $this->assertTrue(search_in_toastr_session(__('flashes.not_verified_user')));
+
+        $this->assertGuest();
     }
 
     /** @test */
@@ -35,12 +37,14 @@ class VerificationTest extends TestCase
         $user = create(User::class);
 
         $this->get(route('register.verify', ['token' => 'INVALID_TOKEN']))
-            ->assertRedirect(route('login'))
-            ->assertSessionHas('error', __('flashes.no_verify_token'));
+            ->assertRedirect(route('login'));
+
+        $this->assertTrue(search_in_toastr_session(__('flashes.no_verify_token')));
 
         $this->get(route('register.verify', ['token' => $user->verify_token]))
-            ->assertRedirect(route('home'))
-            ->assertSessionHas('success', __('flashes.verified_token'));
+            ->assertRedirect(route('dashboard'));
+
+        $this->assertTrue(search_in_toastr_session(__('flashes.verified_token')));
 
         $user = User::find($user->id);
 
@@ -55,10 +59,11 @@ class VerificationTest extends TestCase
 
         $this->get(route('register.verify', ['token' => $user->verify_token]));
 
-        $user = User::find($user->id);
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'secret'
+        ])->assertStatus(302)->assertRedirect(route('dashboard'));
 
-        $this->signIn($user);
-
-        $this->get(route('home'))->assertStatus(200);
+        $this->assertAuthenticated();
     }
 }

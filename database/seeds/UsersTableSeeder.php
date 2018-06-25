@@ -1,5 +1,6 @@
 <?php
 
+use App\Entity\Profile;
 use App\Entity\User;
 use App\UseCases\Auth\RegisterService;
 use Illuminate\Database\Seeder;
@@ -41,14 +42,7 @@ class UsersTableSeeder extends Seeder
     {
         $users = User::all();
         foreach ($users as $user) {
-            $user->profile()->create([
-                'user_id' => $user->id,
-                'photo' => $faker->imageUrl(200, 200),
-                'character_id' => $faker->numberBetween(1, 9),
-                'notification' => $faker->numberBetween(0, 1),
-                'last_session' => $faker->dateTimeThisMonth(),
-                'experience' => $faker->numberBetween(0, 5000),
-            ]);
+            factory(Profile::class)->create(['user_id' => $user->id]);
         }
     }
 

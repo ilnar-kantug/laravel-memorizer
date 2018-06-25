@@ -24,3 +24,14 @@ $factory->define(App\Entity\User::class, function (Faker $faker) {
         'verify_token' => str_random(20),
     ];
 });
+
+$factory->define(App\Entity\Profile::class, function (Faker $faker) {
+    return [
+        'user_id' => 1,
+        'photo' => '/images/avatar.jpg',
+        'character_id' => $faker->numberBetween(1, 9),
+        'notification' => $faker->numberBetween(0, 1),
+        'last_session' => $faker->dateTimeThisMonth(),
+        'experience' => $faker->numberBetween(0, 5000),
+    ];
+});

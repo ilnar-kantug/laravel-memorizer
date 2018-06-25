@@ -6,3 +6,12 @@
  */
 
 require('./bootstrap');
+
+require("jquery-ui/ui/widgets/progressbar");
+require("jquery-ui/themes/base/progressbar.css");
+
+window.toastr = require("toastr/toastr");
+toastr.options.closeButton = true;
+require("toastr/build/toastr.min.css");
+
+require('./custom');
