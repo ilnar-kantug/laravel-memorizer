@@ -63,6 +63,37 @@
 
                 </div>
             </div>
+            <div class="card">
+
+                <div class="card-header text-center">
+                    <h2>{{__('pages.your_cards')}}</h2>
+                </div>
+
+                <div class="card-body">
+                    <div class="row dashboard-cards">
+                        @forelse($user->cards as $card)
+                            <div class="col-md-2 col-4 dashboard-cards__item">
+                            @if($loop->index == 4)
+                                    <a href="#">{{__('pages.see_all_cards')}}</a>
+                                </div>
+                                @break
+                            @endif
+                            @if($loop->last)
+                                    {{$card->title}}
+                                </div>
+                                <div class="col-md-2 col-4 dashboard-cards__item">
+                                    <a href="#">{{__('pages.see_all_cards')}}</a>
+                                </div>
+                                @break
+                            @endif
+                                {{$card->title}}
+                            </div>
+                        @empty
+                            <h3><a href="#">{{__('pages.create_card')}}</a></h3>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

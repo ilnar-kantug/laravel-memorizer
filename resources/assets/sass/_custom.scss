@@ -108,3 +108,14 @@
 .hvr-rectangle-out:hover:before, .hvr-rectangle-out:focus:before, .hvr-rectangle-out:active:before {
   transform: scale(1);
 }
+
+.dashboard-cards__item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid $green;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 5px;
+}
