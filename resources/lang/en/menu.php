@@ -11,4 +11,5 @@ return [
     'create' => 'Create',
     'create_card' => 'Create Card',
     'create_pack' => 'Create Pack',
+    'edit_pack' => 'Edit Pack',
 ];

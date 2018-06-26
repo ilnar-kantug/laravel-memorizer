@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Entity\Pack;
+use App\Entity\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -25,6 +27,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        $this->registerPermissions();
+    }
+
+    private function registerPermissions()
+    {
+        Gate::define('show-pack', function (User $user, Pack $pack) {
+            return $user->isAdmin() || $user->isModerator() || $pack->user_id === $user->id;
+        });
     }
 }

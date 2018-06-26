@@ -11,4 +11,5 @@ return [
     'create' => 'Создать',
     'create_card' => 'Создать карточку',
     'create_pack' => 'Создать пак',
+    'edit_pack' => 'Изменить пак',
 ];

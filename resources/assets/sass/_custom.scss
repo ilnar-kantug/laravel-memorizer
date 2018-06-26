@@ -72,6 +72,17 @@
   &__repeat-now{
     font-size: larger;
   }
+  &__title:hover{
+    text-decoration: underline;
+  }
+  &__link{
+    text-decoration: none;
+    color: #fff;
+    &:hover{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
 }
 
 /* Rectangle Out *** https://github.com/IanLunn/Hover */
@@ -118,4 +129,39 @@
   border-radius: 3px;
   margin-right: 10px;
   padding: 5px;
+}
+
+.repeat-title{
+  font-size: 30px;
+  text-align: center;
+  font-weight: 600;
+  margin: 30px;
+}
+
+.repeat-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.repeat-info > div{
+  margin: 30px;
+}
+
+.repeat-when{
+  &-days{
+    background-color: $indigo;
+    padding: 5px;
+  }
+  &-now{
+    background-color: $green;
+    padding: 5px;
+  }
+}
+
+.repeat-button{
+  font-size: 30px;
+  padding: 10px 40px;
 }

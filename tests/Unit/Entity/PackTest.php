@@ -5,6 +5,7 @@ namespace Tests\Unit\Entity;
 use App\Entity\Pack;
 use App\Entity\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Laravelrus\LocalizedCarbon\LocalizedCarbon;
 use Tests\TestCase;
 use Carbon\Carbon;
 
@@ -20,7 +21,7 @@ class PackTest extends TestCase
 
         $pack = Pack::where('user_id', $user->id)->first();
 
-        $this->assertInstanceOf(Carbon::class, $pack->last_session);
+        $this->assertInstanceOf(LocalizedCarbon::class, $pack->last_session);
     }
 
 

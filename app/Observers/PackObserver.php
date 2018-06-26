@@ -22,4 +22,9 @@ class PackObserver
         $pack->repeat_now = $this->helper->doNeedToRepeatNow($repeat_day, $now);
         $pack->repeat_in_days = $this->helper->getRepeatInHowManyDays($repeat_day, $now);
     }
+
+    public function saving(Pack $pack)
+    {
+        $pack->slug = str_slug(substr($pack->title, 0, 50).' '.str_random(8));
+    }
 }

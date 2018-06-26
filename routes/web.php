@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('register.verify');
 
 Route::get('/dashboard', 'DashboardController@show')->name('dashboard');
+
+Route::get('/repeat/{pack}', 'RepeatController@start')->name('repeat');
