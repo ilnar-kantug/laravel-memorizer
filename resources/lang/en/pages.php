@@ -15,4 +15,11 @@ return [
     'see_all_cards' => 'See All Cards',
     'start_session' => 'Start session',
     'session_needed' => 'Session needed',
+    'next' => 'Next',
+    'cards_for_session' => 'Cards For Session',
+    'completed' => 'Session is completed',
+    'repeated_stats' => 'Repeated :count_repeated_cards_in_session / :count_cards_in_session from :count_cards_in_pack cards in pack',
+    'go_back' => 'You can go back to',
+    'your_dashboard' => 'Dashboard',
+    'earned_experience' => "You've earned :experience experience",
 ];

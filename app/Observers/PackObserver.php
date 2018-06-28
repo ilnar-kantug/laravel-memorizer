@@ -25,6 +25,10 @@ class PackObserver
 
     public function saving(Pack $pack)
     {
-        $pack->slug = str_slug(substr($pack->title, 0, 50).' '.str_random(8));
+        if (!$pack->slug) {
+            $pack->slug = str_slug(substr($pack->title, 0, 50).' '.str_random(8));
+        }
+        unset($pack->repeat_now);
+        unset($pack->repeat_in_days);
     }
 }

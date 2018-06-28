@@ -9,7 +9,7 @@ $factory->define(Pack::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(rand(1, 4)),
         'repeat_days' => $faker->numberBetween(2, 30),
-        'cards_per_session' => $faker->numberBetween(1, 10),
+        'cards_per_session' => array_random([25,50,75,100]),
         'last_session' => $faker->dateTimeThisMonth(),
         'user_id'=>$users->random()->id
     ];

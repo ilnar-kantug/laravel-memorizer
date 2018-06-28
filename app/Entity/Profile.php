@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 
@@ -26,5 +27,17 @@ class Profile extends Model
     public function character()
     {
         return $this->belongsTo(Character::class, 'character_id', 'id');
+    }
+
+    public function addExperience($experience)
+    {
+        $this->experience += $experience;
+        $this->save();
+    }
+
+    public function changeSessionDate()
+    {
+        $this->last_session = Carbon::now();
+        $this->save();
     }
 }

@@ -21,4 +21,6 @@ Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('register.
 
 Route::get('/dashboard', 'DashboardController@show')->name('dashboard');
 
-Route::get('/repeat/{pack}', 'RepeatController@start')->name('repeat');
+Route::get('/repeat/{pack}', 'RepeatController@index')->name('repeat');
+
+Route::get('/repeat/{id}/session', 'RepeatController@session')->name('repeat.session');

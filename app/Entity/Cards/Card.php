@@ -15,6 +15,9 @@ class Card extends Model
     public const CARD_TYPE_IMAGE = ImageCard::class;
     public const CARD_TYPE_HTML = HtmlCard::class;
 
+    public const NOT_REPEATED = 0;
+    public const REPEATED = 1;
+
     protected $fillable = ['title'];
 
     protected $dates = ['deleted_at'];

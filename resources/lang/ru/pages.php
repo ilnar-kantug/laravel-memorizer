@@ -15,4 +15,11 @@ return [
     'see_all_cards' => 'Перейти ко всем карточкам',
     'start_session' => 'Начать сессию',
     'session_needed' => 'Повторить нужно',
+    'next' => 'Дальше',
+    'cards_for_session' => 'Карточки',
+    'completed' => 'Повтор завершен',
+    'repeated_stats' => 'Повторено :count_repeated_cards_in_session / :count_cards_in_session из :count_cards_in_pack карточек подборки',
+    'go_back' => 'Теперь вы можете вернуться к',
+    'your_dashboard' => 'вашей панели',
+    'earned_experience' => "Вы получили :experience опыта",
 ];
