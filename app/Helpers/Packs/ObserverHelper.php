@@ -3,6 +3,7 @@
 namespace App\Helpers\Packs;
 
 use Carbon\Carbon;
+use Laravelrus\LocalizedCarbon\LocalizedCarbon;
 
 class ObserverHelper
 {
@@ -28,6 +29,6 @@ class ObserverHelper
 
     public function makeDateCarbon($last_session)
     {
-        return new Carbon($last_session);
+        return LocalizedCarbon::instance(new Carbon($last_session));
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Level extends Model
 {
     public const MAX_LEVEL = 50;
+    public const EXPERIENCE_PER_CARD = 10;
 
     public $experience;
     public $experience_from;

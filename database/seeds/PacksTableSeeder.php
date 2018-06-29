@@ -24,16 +24,10 @@ class PacksTableSeeder extends Seeder
         $cards = Card::all();
 
         foreach ($packs as $pack) {
-            $numberOfCards = rand(5, 10);
-            while ($numberOfCards > 0) {
-                $this->addCardToPack($pack, $cards);
-                $numberOfCards--;
+            $cardsForPack = $cards->random(rand(5, 10));
+            foreach ($cardsForPack as $currentCard) {
+                $pack->cards()->attach($currentCard->id);
             }
         }
-    }
-
-    public function addCardToPack($pack, $cards)
-    {
-        $pack->cards()->attach($cards->random()->id);
     }
 }

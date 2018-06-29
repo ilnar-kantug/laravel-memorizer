@@ -10,10 +10,14 @@ use Faker\Generator as Faker;
 class CardsTableSeeder extends Seeder
 {
     public $faker;
+    public $imageCardNumber;
+    public $htmlCardNumber;
 
-    public function __construct(Faker $faker)
+    public function __construct(Faker $faker, $imageCardNumber = 25, $htmlCardNumber = 25)
     {
         $this->faker = $faker;
+        $this->imageCardNumber = $imageCardNumber;
+        $this->htmlCardNumber = $htmlCardNumber;
     }
 
     public function run()
@@ -75,10 +79,7 @@ class CardsTableSeeder extends Seeder
 
     public function createCardsAndResourceCards()
     {
-        $imageCardNumber = rand(20, 30);
-        $htmlCardNumber = rand(20, 30);
-
-        $this->createCardFromResourceCard($imageCardNumber, Card::CARD_TYPE_IMAGE);
-        $this->createCardFromResourceCard($htmlCardNumber, Card::CARD_TYPE_HTML);
+        $this->createCardFromResourceCard($this->imageCardNumber, Card::CARD_TYPE_IMAGE);
+        $this->createCardFromResourceCard($this->htmlCardNumber, Card::CARD_TYPE_HTML);
     }
 }
