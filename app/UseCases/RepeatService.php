@@ -6,6 +6,8 @@ use App\Entity\Cards\Card;
 use App\Entity\Level;
 use App\Entity\Pack;
 use App\Entity\Profile;
+use DomainException;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
@@ -16,7 +18,7 @@ class RepeatService
 
     public function handleRequest($id)
     {
-        $pack = Pack::getById($id);
+        $pack = $this->getCurrentPack($id);
 
         $this->buildCacheKey($id);
 
@@ -25,10 +27,10 @@ class RepeatService
         $cardsInSession = $this->getCardsForSession();
 
         if (empty($cardsInSession)) {
-            $cardsInSession = $this->generateCardsForSession($cardsInSession, $pack);
+            $cardsInSession = $this->generateCardsForSession($pack);
         }
 
-        $cardsInSession = $this->ifCurrentCardIsRepeated($cardsInSession);
+        $cardsInSession = $this->ifCurrentCardIsRepeated($cardsInSession, request()->get('card'));
 
         $sessionStats = $this->getSessionStats($pack, $cardsInSession);
 
@@ -92,7 +94,7 @@ class RepeatService
         }
     }
 
-    public function generateCardsForSession($cardsInSession, $pack)
+    public function generateCardsForSession($pack)
     {
         $cardsIds = $pack->cards->pluck('id')->toArray();
         $cardsIdCount = count($cardsIds);
@@ -112,9 +114,8 @@ class RepeatService
         return $cardsInSession;
     }
 
-    public function ifCurrentCardIsRepeated($cardsInSession)
+    public function ifCurrentCardIsRepeated($cardsInSession, $cardInGetRequest)
     {
-        $cardInGetRequest = request()->get('card');
         if ($cardInGetRequest) {
             if (in_array($cardInGetRequest, array_keys($cardsInSession))) {
                 return $this->cardRepeated($cardInGetRequest, $cardsInSession);
@@ -172,5 +173,16 @@ class RepeatService
     public function calcEarnedExperience($sessionStats)
     {
         return $sessionStats['count_repeated_cards_in_session'] * Level::EXPERIENCE_PER_CARD;
+    }
+
+    public function getCurrentPack($id)
+    {
+        $pack = Pack::getById($id);
+
+        if ($pack->cards->count() == 0) {
+            throw new DomainException('No cards in pack');
+        }
+
+        return $pack;
     }
 }
