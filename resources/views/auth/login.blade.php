@@ -61,6 +61,26 @@
                             </div>
                         </div>
                     </form>
+                    <div class="text-center mt-5">
+                        <h4 class="mb-3">Существующие пользователи</h4>
+
+                        <table class="table table-striped table-hover" style="width: 400px; margin: auto;">
+                            <thead>
+                            <tr>
+                                <th scope="col">Email</th>
+                                <th scope="col">Password</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>{{$user['email']}}</td>
+                                        <td>{{$user['password']}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
