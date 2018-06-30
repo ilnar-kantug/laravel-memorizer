@@ -175,3 +175,18 @@
 .repeat-image-area{
   margin: 40px 0;
 }
+
+.lp{
+  &-title{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 92px;
+    text-align: center;
+  }
+  &-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+}

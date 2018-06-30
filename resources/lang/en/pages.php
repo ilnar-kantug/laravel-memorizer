@@ -22,4 +22,5 @@ return [
     'go_back' => 'You can go back to',
     'your_dashboard' => 'Dashboard',
     'earned_experience' => "You've earned :experience experience",
+    'description' => "Create memorization flash cards and repeat them in a way you want",
 ];
