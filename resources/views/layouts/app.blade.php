@@ -40,7 +40,7 @@
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
                                     {{ __('menu.dashboard') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                <a class="dropdown-item disabled" href="#">
                                     {{ __('menu.edit_profile') }}
                                 </a>
                             </div>
