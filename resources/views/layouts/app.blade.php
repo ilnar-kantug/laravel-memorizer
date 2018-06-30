@@ -60,7 +60,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('menu.login') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('menu.register') }}</a>
+                                <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">{{ __('menu.register') }}</a>
                             </li>
                         @else
                             <li class="nav-item">
@@ -83,7 +83,16 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="text-center footer">
+            <div>
+                Source code of this project on <a target="_blank" href="https://github.com/ilnar-kantug/laravel-memorizer">GitHub</a>
+            </div>
+            <div>
+                ilnar.kantug@yandex.ru
+            </div>
+        </footer>
     </div>
+    @include('partials.register-modal')
     {!! Toastr::render() !!}
     @yield('scripts')
 </body>
