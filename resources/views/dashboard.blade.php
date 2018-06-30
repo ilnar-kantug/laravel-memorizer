@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+@include('partials.functionality-modal')
 @endsection
 
 @section('scripts')
@@ -116,6 +117,15 @@
                     $( this ).find('.dashboard-pack__repeat-later').empty().text(text_element_data);
                 }
             );
+            if(!Cookies.get('functionality')){
+                $('#functionalityModal').modal('show');
+            }
+
+            $('#functionalityStop').on('click', function(event) {
+                event.preventDefault();
+                Cookies.set('functionality', 'stop');
+                $('#functionalityModal').modal('hide');
+            });
         });
     </script>
 @endsection
