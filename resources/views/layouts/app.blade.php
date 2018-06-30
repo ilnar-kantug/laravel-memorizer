@@ -40,7 +40,7 @@
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
                                     {{ __('menu.dashboard') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                <a class="dropdown-item disabled" href="#">
                                     {{ __('menu.edit_profile') }}
                                 </a>
                             </div>
@@ -52,12 +52,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item mr-2">
+                            <span class="navbar-text">ver. - {{config('app.version')}}</span>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('menu.login') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('menu.register') }}</a>
+                                <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">{{ __('menu.register') }}</a>
                             </li>
                         @else
                             <li class="nav-item">
@@ -80,7 +83,16 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="text-center footer">
+            <div>
+                Source code of this project on <a target="_blank" href="https://github.com/ilnar-kantug/laravel-memorizer">GitHub</a>
+            </div>
+            <div>
+                ilnar.kantug@yandex.ru
+            </div>
+        </footer>
     </div>
+    @include('partials.register-modal')
     {!! Toastr::render() !!}
     @yield('scripts')
 </body>

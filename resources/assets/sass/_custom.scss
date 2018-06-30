@@ -120,6 +120,10 @@
   transform: scale(1);
 }
 
+.py-4{
+  min-height: 80vh;
+}
+
 .dashboard-cards__item{
   display: flex;
   justify-content: center;
@@ -189,4 +193,10 @@
     justify-content: center;
     height: 80vh;
   }
+}
+
+.footer{
+  margin-top: 20px;
+  padding: 50px;
+  background-color: $gray-800;
 }

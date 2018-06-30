@@ -7,10 +7,10 @@
         </a>
 
         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('dashboard') }}">
+            <a class="dropdown-item disabled" href="#">
                 {{ __('menu.create_card') }}
             </a>
-            <a class="dropdown-item" href="{{ route('dashboard') }}">
+            <a class="dropdown-item disabled" href="#">
                 {{ __('menu.create_pack') }}
             </a>
         </div>
@@ -74,7 +74,7 @@
                         @forelse($user->cards as $card)
                             <div class="col-md-2 col-4 dashboard-cards__item">
                             @if($loop->index == 4)
-                                    <a href="#">{{__('pages.see_all_cards')}}</a>
+                                    <a class="disabled" href="#">{{__('pages.see_all_cards')}}</a>
                                 </div>
                                 @break
                             @endif
@@ -82,7 +82,7 @@
                                     {{$card->title}}
                                 </div>
                                 <div class="col-md-2 col-4 dashboard-cards__item">
-                                    <a href="#">{{__('pages.see_all_cards')}}</a>
+                                    <a class="disabled" href="#">{{__('pages.see_all_cards')}}</a>
                                 </div>
                                 @break
                             @endif
@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+@include('partials.functionality-modal')
 @endsection
 
 @section('scripts')
@@ -116,6 +117,15 @@
                     $( this ).find('.dashboard-pack__repeat-later').empty().text(text_element_data);
                 }
             );
+            if(!Cookies.get('functionality')){
+                $('#functionalityModal').modal('show');
+            }
+
+            $('#functionalityStop').on('click', function(event) {
+                event.preventDefault();
+                Cookies.set('functionality', 'stop');
+                $('#functionalityModal').modal('hide');
+            });
         });
     </script>
 @endsection
