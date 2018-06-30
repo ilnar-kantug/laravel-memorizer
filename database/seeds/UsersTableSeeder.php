@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
     {
         $this->createAdmin();
 
-        factory(User::class, 10)->create();
+        factory(User::class, 5)->create();
 
         $users =  User::all();
 

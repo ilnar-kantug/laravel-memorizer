@@ -2,6 +2,7 @@
 
 use App\Entity\Cards\Card;
 use App\Entity\Pack;
+use App\Entity\User;
 use Illuminate\Database\Seeder;
 
 class PacksTableSeeder extends Seeder
@@ -15,7 +16,10 @@ class PacksTableSeeder extends Seeder
 
     public function createPacks()
     {
-        factory(Pack::class, 30)->create();
+        $users = User::all();
+        foreach ($users as $user) {
+            factory(Pack::class, rand(5, 10))->create(['user_id' => $user->id]);
+        }
     }
 
     public function associateCardsWithPacks()

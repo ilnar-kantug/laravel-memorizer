@@ -1,6 +1,10 @@
 <?php $i = 1 ?>
 @forelse($user->sortedPacks as $pack)
 
+    @if($pack->cards->count() == 0)
+        @continue
+    @endif
+
     @if($i == 1)
         <div class="row">
     @endif
