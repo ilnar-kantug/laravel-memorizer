@@ -52,6 +52,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item mr-2">
+                            <span class="navbar-text">ver. - {{config('app.version')}}</span>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('menu.login') }}</a>

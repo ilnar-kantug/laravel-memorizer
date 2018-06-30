@@ -20,6 +20,9 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-2">
+                    <span class="navbar-text">ver. - {{config('app.version')}}</span>
+                </li>
                 @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">{{ __('menu.dashboard') }}</a>
