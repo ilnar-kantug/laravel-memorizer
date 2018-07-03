@@ -150,7 +150,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
         /*
          * Application Service Providers...
@@ -224,5 +223,5 @@ return [
     |
     */
 
-    'version' => 'alpha 0.0.1',
+    'version' => 'alpha 0.0.2',
 ];

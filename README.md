@@ -32,11 +32,15 @@ Project site url - [keep-in-mind.ru](http://keep-in-mind.ru/)
         - [ ] ...
 
 
-Server:
-- VPS
-- Linux
-- Nginx
-- Mysql
-- Php 7
-- Redis
-- Selectel CDN
+Server structure:
+```
+46.17.44.59     NGINX balancer
+185.22.152.14   node1 - PHP, NGINX
+185.22.152.198  node2 - PHP, NGINX
+46.17.44.60     MYSQL master
+46.17.44.62     MYSQL slave
+46.17.44.121    REDIS
+uploaded files on Selectel CDN
+```
+---
+Current project is developed only for educational purposes, that's why technological stack is redundant.
