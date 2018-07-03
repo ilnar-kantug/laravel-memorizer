@@ -223,5 +223,5 @@ return [
     |
     */
 
-    'version' => 'alpha 0.0.1',
+    'version' => 'alpha 0.0.2',
 ];
